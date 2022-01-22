@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Component } from "react";
+import { CardList } from "./components/card-list/card-list";
 
 class App extends Component {
   constructor() {
@@ -23,9 +23,11 @@ class App extends Component {
         <header className="App-header">
           <p>Monsters Rolodex</p>
           <input placeholder={"search monsters"} />
-          {this.state.monsters.map((monster, index) => {
-            return <h1 key={index}>{monster.name}</h1>;
-          })}
+          <CardList>
+            {this.state.monsters.map((monster, index) => {
+              return <h1 key={index}>{monster.name}</h1>;
+            })}
+          </CardList>
         </header>
       </div>
     );
