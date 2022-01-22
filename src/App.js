@@ -11,8 +11,6 @@ class App extends Component {
       monsters: [],
       searchField: "",
     };
-
-    this.searchHandler = this.searchHandler.bind(this);
   }
 
   componentDidMount() {
@@ -21,9 +19,9 @@ class App extends Component {
       .then((users) => this.setState({ monsters: users }));
   }
 
-  searchHandler(e) {
+  searchHandler = (e) => {
     this.setState({ searchField: e.target.value });
-  }
+  };
 
   render() {
     const { monsters, searchField } = this.state;
