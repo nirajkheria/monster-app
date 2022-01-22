@@ -8,7 +8,10 @@ class App extends Component {
 
     this.state = {
       monsters: [],
+      searchField: "",
     };
+
+    this.searchHandler = this.searchHandler.bind(this);
   }
 
   componentDidMount() {
@@ -17,12 +20,25 @@ class App extends Component {
       .then((users) => this.setState({ monsters: users }));
   }
 
+  searchHandler(e) {
+    this.setState({ searchField: e.target.value });
+  }
+
   render() {
+    const { monsters, searchField } = this.state;
+    const filteredMonsters = monsters.filter((monster) =>
+      monster.name.toLocaleLowerCase().includes(searchField.toLocaleLowerCase())
+    );
+
     return (
       <div className="App">
         <p>Monsters Rolodex</p>
-        <input placeholder={"search monsters"} />
-        <CardList monsters={this.state.monsters}></CardList>
+        <input
+          placeholder="search monsters"
+          type="search"
+          onChange={this.searchHandler}
+        />
+        <CardList monsters={filteredMonsters}></CardList>
       </div>
     );
   }
