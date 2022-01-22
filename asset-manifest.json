@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/monster-app/static/css/main.a5ec5dc9.css",
+    "main.js": "/monster-app/static/js/main.ba8fdd0b.js",
+    "static/js/787.bee243e6.chunk.js": "/monster-app/static/js/787.bee243e6.chunk.js",
+    "index.html": "/monster-app/index.html",
+    "main.a5ec5dc9.css.map": "/monster-app/static/css/main.a5ec5dc9.css.map",
+    "main.ba8fdd0b.js.map": "/monster-app/static/js/main.ba8fdd0b.js.map",
+    "787.bee243e6.chunk.js.map": "/monster-app/static/js/787.bee243e6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a5ec5dc9.css",
+    "static/js/main.ba8fdd0b.js"
+  ]
+}
