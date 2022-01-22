@@ -20,15 +20,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>Monsters Rolodex</p>
-          <input placeholder={"search monsters"} />
-          <CardList>
-            {this.state.monsters.map((monster, index) => {
-              return <h1 key={index}>{monster.name}</h1>;
-            })}
-          </CardList>
-        </header>
+        <p>Monsters Rolodex</p>
+        <input placeholder={"search monsters"} />
+        <CardList monsters={this.state.monsters}></CardList>
       </div>
     );
   }
