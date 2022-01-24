@@ -67,6 +67,14 @@ class App extends Component {
       color3: "",
       color4: "",
       color5: "",
+      colors: [
+        ["", "", "", "", ""],
+        ["", "", "", "", ""],
+        ["", "", "", "", ""],
+        ["", "", "", "", ""],
+        ["", "", "", "", ""],
+        ["", "", "", "", ""],
+      ],
     };
   }
 
@@ -81,39 +89,78 @@ class App extends Component {
   };
 
   submitHandler = () => {
-    const { words, guessCount, word } = this.state;
+    const { words, guessCount, word, colors } = this.state;
+
+    const tempColors = { ...colors };
 
     if (word[0] === words[guessCount].letter1) {
-      this.setState({ color1: "green" });
+      tempColors[guessCount][0] = "green";
     } else if (word.indexOf(words[guessCount].letter1) >= 0) {
-      this.setState({ color1: "yellow" });
-    } else this.setState({ color1: "grey" });
+      tempColors[guessCount][0] = "yellow";
+    } else {
+      tempColors[guessCount][0] = "grey";
+    }
 
     if (word[1] === words[guessCount].letter2) {
-      this.setState({ color2: "green" });
+      tempColors[guessCount][1] = "green";
     } else if (word.indexOf(words[guessCount].letter2) >= 0) {
-      this.setState({ color2: "yellow" });
-    } else this.setState({ color2: "grey" });
+      tempColors[guessCount][1] = "yellow";
+    } else {
+      tempColors[guessCount][1] = "grey";
+    }
 
     if (word[2] === words[guessCount].letter3) {
-      this.setState({ color3: "green" });
+      tempColors[guessCount][2] = "green";
     } else if (word.indexOf(words[guessCount].letter3) >= 0) {
-      this.setState({ color3: "yellow" });
-    } else this.setState({ color3: "grey" });
+      tempColors[guessCount][2] = "yellow";
+    } else {
+      tempColors[guessCount][2] = "grey";
+    }
 
     if (word[3] === words[guessCount].letter4) {
-      this.setState({ color4: "green" });
+      tempColors[guessCount][3] = "green";
     } else if (word.indexOf(words[guessCount].letter4) >= 0) {
-      this.setState({ color4: "yellow" });
-    } else this.setState({ color4: "grey" });
+      tempColors[guessCount][3] = "yellow";
+    } else {
+      tempColors[guessCount][3] = "grey";
+    }
 
     if (word[4] === words[guessCount].letter5) {
-      this.setState({ color5: "green" });
+      tempColors[guessCount][4] = "green";
     } else if (word.indexOf(words[guessCount].letter5) >= 0) {
-      this.setState({ color5: "yellow" });
-    } else this.setState({ color5: "grey" });
+      tempColors[guessCount][4] = "yellow";
+    } else {
+      tempColors[guessCount][4] = "grey";
+    }
 
-    this.setState({ guessCount: this.state.guessCount + 1 });
+    // if (word[1] === words[guessCount].letter2) {
+    //   this.setState({ color2: "green" });
+    // } else if (word.indexOf(words[guessCount].letter2) >= 0) {
+    //   this.setState({ color2: "yellow" });
+    // } else this.setState({ color2: "grey" });
+
+    // if (word[2] === words[guessCount].letter3) {
+    //   this.setState({ color3: "green" });
+    // } else if (word.indexOf(words[guessCount].letter3) >= 0) {
+    //   this.setState({ color3: "yellow" });
+    // } else this.setState({ color3: "grey" });
+
+    // if (word[3] === words[guessCount].letter4) {
+    //   this.setState({ color4: "green" });
+    // } else if (word.indexOf(words[guessCount].letter4) >= 0) {
+    //   this.setState({ color4: "yellow" });
+    // } else this.setState({ color4: "grey" });
+
+    // if (word[4] === words[guessCount].letter5) {
+    //   this.setState({ color5: "green" });
+    // } else if (word.indexOf(words[guessCount].letter5) >= 0) {
+    //   this.setState({ color5: "yellow" });
+    // } else this.setState({ color5: "grey" });
+
+    this.setState({
+      colors: tempColors,
+      guessCount: this.state.guessCount + 1,
+    });
   };
 
   render() {
@@ -128,6 +175,7 @@ class App extends Component {
       color3,
       color4,
       color5,
+      colors,
     } = this.state;
     const filteredMonsters = monsters.filter((monster) =>
       monster.name.toLocaleLowerCase().includes(searchField.toLocaleLowerCase())
@@ -151,6 +199,7 @@ class App extends Component {
           color3={color3}
           color4={color4}
           color5={color5}
+          colors={colors}
         ></CardList>
       </div>
     );

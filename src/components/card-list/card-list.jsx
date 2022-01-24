@@ -13,6 +13,7 @@ export const CardList = (props) => {
     color3,
     color4,
     color5,
+    colors,
   } = props;
 
   const keyHandler1 = (event) => {
@@ -45,31 +46,31 @@ export const CardList = (props) => {
         return (
           <>
             <Card
-              backColor={index === guessCount - 1 ? color1 : ""}
+              backColor={colors[index][0]} //{index === guessCount - 1 ? color1 : ""}
               key={index}
               item={item.letter1}
               onKeyPress={keyHandler1}
             />
             <Card
-              backColor={index === guessCount - 1 ? color2 : ""}
+              backColor={colors[index][1]} //{index === guessCount - 1 ? color2 : ""}
               key={index}
               item={item.letter2}
               onKeyPress={keyHandler2}
             />
             <Card
-              backColor={index === guessCount - 1 ? color3 : ""}
+              backColor={colors[index][2]} //{index === guessCount - 1 ? color3 : ""}
               key={index}
               item={item.letter3}
               onKeyPress={keyHandler3}
             />
             <Card
-              backColor={index === guessCount - 1 ? color4 : ""}
+              backColor={colors[index][3]} //{index === guessCount - 1 ? color4 : ""}
               key={index}
               item={item.letter4}
               onKeyPress={keyHandler4}
             />
             <Card
-              backColor={index === guessCount - 1 ? color5 : ""}
+              backColor={colors[index][4]} //{index === guessCount - 1 ? color5 : ""}
               key={index}
               item={item.letter5}
               onKeyPress={keyHandler5}
